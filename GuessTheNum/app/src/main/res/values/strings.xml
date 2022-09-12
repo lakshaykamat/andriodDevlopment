@@ -4,5 +4,4 @@
     <string name="enter_number">Enter Number</string>
     <string name="go">GO</string>
     <string name="guess_the_number_between_1_to_100">Guess the Number between 1 to 100</string>
-    <string name="retry">RETRY</string>
 </resources>

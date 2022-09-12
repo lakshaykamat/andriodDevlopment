@@ -15,7 +15,7 @@ import java.text.DecimalFormat;
 
 public class MainActivity extends AppCompatActivity {
     //Variables
-    public int movesLeft = 7;
+    public int movesLeft = 6;
     public int movesUsed = 0;
     public Boolean usrWins = false;
     private EditText usrNumEl;
@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                     //if user enter more than 100 or less than or equal to 0 show error
                     if (usrNumToInt > 100 || usrNumToInt <= 0) {
                         Toast.makeText(MainActivity.this, "Choose between [1 to 100]", Toast.LENGTH_SHORT).show();
+                        return;
                     }
 
                     //Checking Conditions or Comparing the numbers
@@ -84,13 +85,13 @@ public class MainActivity extends AppCompatActivity {
                     } else if (usrNumToInt > randomNumToInt) {
                         movesLeft--;
                         movesUsed++;
-                        resultEl.setText("Choose a Lower number");
+                        resultEl.setText("Think a Lower number");
                         usrNumEl.setText("");
                         textViewMovesLeft.setText("Moves: "+ movesLeft);
                     } else if (usrNumToInt < randomNumToInt) {
                         movesLeft--;
                         movesUsed++;
-                        resultEl.setText("Choose a Higher Number");
+                        resultEl.setText("Think a Higher Number");
                         usrNumEl.setText("");
                         textViewMovesLeft.setText("Moves: " + movesLeft);
                     } else {
@@ -104,7 +105,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void zeroMoves(int movesLeft, String movesUsed , String usrWins,String randomNum) {
         if(movesLeft == 0){
-            Toast.makeText(MainActivity.this, "0 Moves left", Toast.LENGTH_SHORT).show();
             creatingNewActivity(Integer.toString(movesLeft),movesUsed,usrWins,randomNum);
         }
     }
