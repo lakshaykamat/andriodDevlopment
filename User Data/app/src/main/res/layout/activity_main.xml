@@ -13,29 +13,32 @@
         android:fontFamily="sans-serif-condensed-light"
         android:text="@string/information"
         android:textAlignment="center"
-        android:textColor="#000000"
+        android:textColor="@color/material_dynamic_neutral50"
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.823" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="409dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="70dp"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
         android:orientation="vertical"
+        android:padding="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="@+id/usrEmail"
+            app:layout_constraintTop_toBottomOf="@+id/usrEmail">
 
             <EditText
                 android:id="@+id/usrName"
@@ -109,13 +112,14 @@
                 android:id="@+id/genderHeading"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="64dp"
-                android:layout_marginTop="44dp"
+                android:layout_marginStart="84dp"
                 android:text="@string/gender"
                 android:textColor="#000000"
-                android:textSize="17sp"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/radioSex"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/usrPhone" />
+                app:layout_constraintTop_toBottomOf="@+id/usrPhone"
+                app:layout_constraintVertical_bias="0.767" />
 
             <RadioGroup
                 android:id="@+id/radioSex"
@@ -132,13 +136,17 @@
                     android:id="@+id/maleCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/male"/>
+                    android:scrollbarSize="3dp"
+                    android:text="@string/male"
+                    android:textSize="12sp" />
 
                 <RadioButton
                     android:id="@+id/femaleCheckBox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/female"/>
+                    android:scrollbarSize="3dp"
+                    android:text="@string/female"
+                    android:textSize="12sp" />
 
             </RadioGroup>
 
@@ -146,6 +154,7 @@
                 android:id="@+id/button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
                 android:onClick="openingSecondActivity"
                 android:text="@string/submit"
                 app:layout_constraintBottom_toBottomOf="parent"
