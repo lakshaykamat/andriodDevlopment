@@ -11,26 +11,25 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
-    private Contacts[] localDataSet;
+    private final Contacts[] localDataSet;
     private TextView usrName;
     private TextView phoneNum;
     private ImageView usrImg;
-    private int imageNum;
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).
      */
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        private final TextView textView;
+        //private final TextView textView;
 
         public ViewHolder(View view) {
             super(view);
             // Define click listener for the ViewHolder's View
 
-            textView = (TextView) view.findViewById(R.id.usrName);
+           // textView = (TextView) view.findViewById(R.id.usrName);
         }
 
-        public TextView getTextView() {return textView;}
+       // public TextView getTextView() {return textView;}
     }
 
     /**
@@ -59,20 +58,18 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     // Replace the contents of a view (invoked by the layout manager)
     @Override
-    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+    public void onBindViewHolder(@NonNull ViewHolder viewHolder, final int position) {
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-       // viewHolder.getTextView().setText((CharSequence) localDataSet[position]);
         usrName.setText(localDataSet[position].userName);
         phoneNum.setText(localDataSet[position].phoneNumber);
-        usrImg.setImageResource(localDataSet[position].usrImg);
-        //usrImg.setImageResource(R.drawable.deafultusrimage);
+        usrImg.setImageResource(localDataSet[position].usrImgSrc);
     }
 
     // Return the size of your dataset (invoked by the layout manager)
     @Override
-    public int getItemCount() {
-        return localDataSet.length;
-    }
+   public int getItemCount() {
+       return localDataSet.length;
+   }
 }

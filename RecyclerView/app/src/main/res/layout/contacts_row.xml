@@ -22,33 +22,38 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_weight="0"
-            android:innerRadius="0dp"
-            android:shape="ring"
-            app:cardCornerRadius="50dp">
+            android:innerRadius="30dp"
+            android:shape="rectangle"
+            app:cardCornerRadius="30dp">
 
             <ImageView
                 android:id="@+id/imageView"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="0"
+                android:adjustViewBounds="false"
+                android:background="#FFFFFF"
                 android:contentDescription="@string/user_image"
+                android:cropToPadding="false"
+                android:padding="0dp"
                 android:scaleType="centerCrop"
-                tools:ignore="ImageContrastCheck"
-                tools:srcCompat="@drawable/deafultusrimage" />
+                tools:ignore="ImageContrastCheck" />
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="0"
+            android:baselineAligned="false"
+            android:gravity="center|center_vertical"
             android:orientation="vertical">
 
             <TextView
                 android:id="@+id/usrName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_weight="0"
                 android:text="TextView"
                 android:textAlignment="textStart"
@@ -59,7 +64,7 @@
                 android:id="@+id/phoneNum"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="15dp"
                 android:layout_weight="0"
                 android:text="TextView"
                 android:textColor="#616161" />
