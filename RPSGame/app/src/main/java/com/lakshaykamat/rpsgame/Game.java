@@ -26,6 +26,7 @@ public class Game extends AppCompatActivity {
     String rock = "Rock";
     String paper = "Paper";
     String scissor = "Scissor";
+    String usrName;
     public static final String EXTRA_YOUR_NAME = "com.lakshaykamat.extra.yourname";
     public static final String EXTRA_YOUR_SCORE = "com.lakshaykamat.extra.yourscore";
     public static final String EXTRA_COMPUTER_SCORE = "com.lakshaykamat.extra.computerscore";
@@ -49,7 +50,7 @@ public class Game extends AppCompatActivity {
 
         Intent intent = getIntent();
         //getting name and rounds
-       String name = intent.getStringExtra(MainActivity.EXTRA_NAME);
+       usrName = intent.getStringExtra(MainActivity.EXTRA_NAME);
        String roundString = intent.getStringExtra(MainActivity.EXTRA_ROUNDS_STRING);
        //converting rounds to int and assigning
        rounds = Integer.parseInt(roundString);
@@ -58,36 +59,36 @@ public class Game extends AppCompatActivity {
         //Click listener on Image Button
         rockButton.setOnClickListener(view -> {
             userChoice = rock;
-            buttonClicked(userScore,compScore,name);
+            buttonClicked(userScore,compScore);
         });
         paperButton.setOnClickListener(view -> {
             userChoice = paper;
-            buttonClicked(userScore,compScore,name);
+            buttonClicked(userScore,compScore);
         });
         scissorButton.setOnClickListener(view -> {
             userChoice = scissor;
-            buttonClicked(userScore,compScore,name);
+            buttonClicked(userScore,compScore);
         });
     }
     //Game Starts here
-    public void playGame(String userChoice, String computerChoice){
+    public void playGame(String userChoice, String computerChoice,int userScore,int compScore){
         String usrWin = "You win";
         String compWin = "You Lose";
         String noWin = "Draw";
          if (userChoice.equals(computerChoice)){
-             drawMethod(noWin);
+             drawMethod(noWin,userScore,compScore);
          }else if(userChoice.equals(rock) && computerChoice.equals(paper)){
-             compWinMethod(compWin);
+             compWinMethod(compWin,userScore,compScore);
          }else if(userChoice.equals(rock) && computerChoice.equals(scissor)){
-             userWinMethod(usrWin);
+             userWinMethod(usrWin,userScore,compScore);
          }else if(userChoice.equals(paper) && computerChoice.equals(rock)){
-             userWinMethod(usrWin);
+             userWinMethod(usrWin,userScore,compScore);
          }else if(userChoice.equals(paper) && computerChoice.equals(scissor)){
-             compWinMethod(compWin);
+             compWinMethod(compWin,userScore,compScore);
          }else if(userChoice.equals(scissor) && computerChoice.equals(rock)){
-             compWinMethod(compWin);
+             compWinMethod(compWin,userScore,compScore);
          }else if(userChoice.equals(scissor) && computerChoice.equals(paper)){
-             userWinMethod(usrWin);
+             userWinMethod(usrWin,userScore,compScore);
          }
     }
     //Generates random number from 0 to 3 and assign computer choice
@@ -104,15 +105,17 @@ public class Game extends AppCompatActivity {
     }
     //This method opens new Activity
     public void openNewActivity(int yourScore, int compScore,String name){
-        Intent intent = new Intent(this,Game_end.class);
-        intent.putExtra(EXTRA_YOUR_NAME,name);
-        intent.putExtra(EXTRA_YOUR_SCORE,Integer.toString(yourScore));
-        intent.putExtra(EXTRA_COMPUTER_SCORE,Integer.toString(compScore));
-        startActivity(intent);
+        if(rounds == iteration) {
+            Intent intent = new Intent(this, Game_end.class);
+            intent.putExtra(EXTRA_YOUR_NAME, name);
+            intent.putExtra(EXTRA_YOUR_SCORE, Integer.toString(yourScore));
+            intent.putExtra(EXTRA_COMPUTER_SCORE, Integer.toString(compScore));
+            startActivity(intent);
+        }
     }
     //When User wins
-    public void userWinMethod(String usrWin){
-        userScore+=5; //increment by 5
+    public void userWinMethod(String usrWin,int userScore,int compScore){
+        this.userScore = userScore+=5; //increment by 5
         //set choices
         computerChoiceEl.setText(computerChoice);
         userChoiceEl.setText(userChoice);
@@ -124,10 +127,11 @@ public class Game extends AppCompatActivity {
         //play media
         mediaPlayer = MediaPlayer.create(this,R.raw.small_win);
         mediaPlayer.start();
+        openNewActivity(userScore,compScore,usrName);
     }
     //When Computer wins
-    public void compWinMethod(String compWin){
-        compScore+=5;
+    public void compWinMethod(String compWin,int userScore,int compScore){
+       this.compScore = compScore+=5;
         computerChoiceEl.setText(computerChoice);
         userChoiceEl.setText(userChoice);
         gameStatus.setText(compWin);
@@ -135,11 +139,12 @@ public class Game extends AppCompatActivity {
         compScoreEl.setText(getString(R.string.setting_comp_score,compScore));
         mediaPlayer = MediaPlayer.create(this,R.raw.small_lose);
         mediaPlayer.start();
+        openNewActivity(userScore,compScore,usrName);
     }
     //When Math Draw
-    public void drawMethod(String noWin){
-        userScore+=3;
-        compScore+=3;
+    public void drawMethod(String noWin,int userScore,int compScore){
+        this.userScore =  userScore+=3;
+        this.compScore = compScore+=3;
         computerChoiceEl.setText(computerChoice);
         userChoiceEl.setText(userChoice);
         yourScoreEl.setText(getString(R.string.setting_user_score,userScore));
@@ -147,17 +152,18 @@ public class Game extends AppCompatActivity {
         gameStatus.setText(noWin);
         mediaPlayer = MediaPlayer.create(this,R.raw.small_lose);
         mediaPlayer.start();
+        openNewActivity(userScore,compScore,usrName);
     }
     //When user Clicked any Button
-    public void buttonClicked(int userScore,int compScore,String name){
-        iteration++;
+    public void buttonClicked(int userScore,int compScore){
+        iteration++;//increment iteration
+        //sets text to VS
         versus.setText(getString(R.string.set_versus));
+        //Sets rounds
         roundsEl.setText(getString(R.string.set_iteration,iteration));
-        if (iteration == rounds) {
-            openNewActivity(userScore,compScore,name);
-        }else{
-            computerChoice = setComputerChoice();
-            playGame(userChoice,computerChoice);
-        }
+        //Generates computer choice
+        computerChoice = setComputerChoice();
+        //here all possibilities occurs of game
+        playGame(userChoice,computerChoice,userScore,compScore);
     }
 }

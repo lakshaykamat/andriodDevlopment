@@ -3,18 +3,18 @@
     <string name="gameHeading">Rock Paper Scissor</string>
     <string name="nameInput">Enter your name</string>
     <string name="set_rounds">How many rounds do you want to play?</string>
-    <string name="default_rounds">Default is 3</string>
+    <string name="default_rounds">Default is 5</string>
     <string name="default_name">Default is You</string>
     <string name="play_button_image_des">Play button image</string>
-    <string name="computer_score_default">Computer Score: 0</string>
+    <string name="computer_score_default">Comp Score: 0</string>
+    <string name="your_score_default">Your Score: 0</string>
     <string name="press_any">Press any option</string>
     <string name="set_versus">VS</string>
-    <string name="your_score_default">Your Score: 0</string>
     <string name="rock_button">Rock Button</string>
     <string name="paper_button">Paper Button</string>
     <string name="scissor_button">Scissor Button</string>
     <string name="set_iteration">Round %1$d</string>
-    <string name="setting_comp_score">Computer Score: %1$d</string>
+    <string name="setting_comp_score">Comp Score: %1$d</string>
     <string name="setting_user_score">Your Score: %1$d</string>
     <string-array name="finalWin">
         <item>Win</item>
