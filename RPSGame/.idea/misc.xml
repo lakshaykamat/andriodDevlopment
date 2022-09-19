@@ -3,8 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Lakshay/Documents/Lakshay/Coding/Andriod Devlopment/RPSGame/app/src/main/res/layout/activity_about_game.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/Lakshay/Documents/Lakshay/Coding/Andriod Devlopment/RPSGame/app/src/main/res/layout/activity_game.xml" value="0.536" />
-        <entry key="..\:/Users/Lakshay/Documents/Lakshay/Coding/Andriod Devlopment/RPSGame/app/src/main/res/layout/activity_game_end.xml" value="0.1936725096194955" />
+        <entry key="..\:/Users/Lakshay/Documents/Lakshay/Coding/Andriod Devlopment/RPSGame/app/src/main/res/layout/activity_game_end.xml" value="0.31979478409576745" />
+        <entry key="..\:/Users/Lakshay/Documents/Lakshay/Coding/Andriod Devlopment/RPSGame/app/src/main/res/layout/activity_game_stats.xml" value="0.1936725096194955" />
         <entry key="..\:/Users/Lakshay/Documents/Lakshay/Coding/Andriod Devlopment/RPSGame/app/src/main/res/layout/activity_main.xml" value="0.4" />
         <entry key="..\:/Users/Lakshay/Documents/Lakshay/Coding/Andriod Devlopment/RPSGame/app/src/main/res/layout/game.xml" value="0.20521590423257802" />
         <entry key="..\:/Users/Lakshay/Documents/Lakshay/Coding/Andriod Devlopment/RPSGame/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.121" />

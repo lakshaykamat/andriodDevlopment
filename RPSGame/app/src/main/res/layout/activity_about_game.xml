@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".about_game">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/aboutGameheading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/amiko"
+                android:text="ABOUT GAME"
+                android:textAlignment="center"
+                android:textSize="34sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/para1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/amiko"
+                android:padding="15dp"
+                android:text="Rock paper scissors (also known by other orderings of the three items, with &quot;rock&quot; sometimes being called &quot;stone,&quot; or as Rochambeau, roshambo, or ro-sham-bo) is a hand game originating from China, usually played between two people, in which each player simultaneously forms one of three shapes with an outstretched hand. These shapes are &quot;rock&quot; (a closed fist), &quot;paper&quot; (a flat hand), and &quot;scissors&quot; (a fist with the index finger and middle finger extended, forming a V). &quot;Scissors&quot; is identical to the two-fingered V sign (also indicating &quot;victory&quot; or &quot;peace&quot;) except that it is pointed horizontally instead of being held upright in the air."
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                app:lineHeight="30dp" />
+
+            <TextView
+                android:id="@+id/para2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/amiko"
+                android:padding="15dp"
+                android:text="A simultaneous, zero-sum game, it has three possible outcomes: a draw, a win or a loss. A player who decides to play rock will beat another player who has chosen scissors (&quot;rock crushes scissors&quot; or &quot;breaks scissors&quot; or sometimes &quot;blunts scissors&quot;), but will lose to one who has played paper (&quot;paper covers rock&quot;); a play of paper will lose to a play of scissors (&quot;scissors cuts paper&quot;). If both players choose the same shape, the game is tied and is usually immediately replayed to break the tie. The game spread from China while developing different variants in signs over time."
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                app:lineHeight="30dp" />
+
+            <TextView
+                android:id="@+id/gamePlayHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/amiko"
+                android:text="GAMEPLAY"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/para3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/amiko"
+                android:padding="15dp"
+                android:text="The players may count aloud to three, or speak the name of the game (e.g. &quot;Rock! Paper! Scissors!&quot;), either raising one hand in a fist and swinging it down with each syllable or holding it behind their back. They then &quot;throw&quot; or &quot;shoot&quot; by extending it towards their opponent. Variations include a version where players throw immediately on the third count (thus throwing on the count of &quot;Scissors!&quot;), or a version where they shake their hands three times before &quot;throwing&quot;."
+                android:textAlignment="textStart"
+                android:textSize="16sp"
+                app:lineHeight="30dp" />
+
+            <TextView
+                android:id="@+id/algoHeading"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/amiko"
+                android:text="ALGORITHIM"
+                android:textAlignment="center"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/para4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:fontFamily="@font/amiko"
+                android:padding="15dp"
+                android:text="As a consequence of rock paper scissors programming contests, many strong algorithms have emerged. For example, Iocaine Powder, which won the First International RoShamBo Programming Competition in 1999, uses a heuristically designed compilation of strategies. For each strategy it employs, it also has six metastrategies which defeat second-guessing, triple-guessing, as well as second-guessing the opponent, and so on. The optimal strategy or metastrategy is chosen based on past performance. The main strategies it employs are history matching, frequency analysis, and random guessing. Its strongest strategy, history matching, searches for a sequence in the past that matches the last few moves in order to predict the next move of the algorithm. In frequency analysis, the program simply identifies the most frequently played move. The random guess is a fallback method that is used to prevent a devastating loss in the event that the other strategies fail. There have since been some innovations, such as using multiple history-matching schemes that each match a different aspect of the history – for example, the opponent's moves, the program's own moves, or a combination of both. There have also been other algorithms based on Markov chains."
+                android:textSize="16sp"
+                app:lineHeight="30dp" />
+
+            <TextView
+                android:id="@+id/para5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginEnd="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginBottom="10dp"
+                android:fontFamily="@font/amiko"
+                android:padding="15dp"
+                android:text="In 2012, researchers from the Ishikawa Watanabe Laboratory at the University of Tokyo created a robot hand that can play rock paper scissors with a 100% win rate against a human opponent. Using a high-speed camera the robot recognizes within one millisecond which shape the human hand is making, then produces the corresponding winning shape."
+                android:textSize="16sp"
+                app:lineHeight="30dp" />
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

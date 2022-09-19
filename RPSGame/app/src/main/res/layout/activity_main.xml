@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/amiko"
-        android:text="@string/gameHeading"
+        android:text="Rock Paper Scissor"
+        android:textAlignment="center"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -22,10 +23,11 @@
         android:id="@+id/nameContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="68dp"
         android:orientation="vertical"
         android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gameheading">
 
@@ -95,18 +97,55 @@
 
     </LinearLayout>
 
-    <ImageView
-        android:id="@+id/playButton"
-        android:layout_width="160dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="30dp"
-        android:contentDescription="@string/play_button_image_des"
-        android:onClick="playGame"
+    <LinearLayout
+        android:id="@+id/buttonContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/roundContainer"
-        app:srcCompat="@drawable/playimg"
-        tools:ignore="ImageContrastCheck,RedundantDescriptionCheck" />
+        app:layout_constraintVertical_bias="0.291">
+
+        <ImageView
+            android:id="@+id/playButton"
+            android:layout_width="160dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/play_button_image_des"
+            android:onClick="playGame"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/playimg"
+            tools:ignore="ImageContrastCheck,RedundantDescriptionCheck" />
+
+        <Button
+            android:id="@+id/gameStatsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/amiko"
+            android:onClick="gameStats"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="Game STATS"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/aboutGameBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/amiko"
+            android:onClick="aboutGameIntent"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:text="About Game"
+            android:textStyle="bold" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

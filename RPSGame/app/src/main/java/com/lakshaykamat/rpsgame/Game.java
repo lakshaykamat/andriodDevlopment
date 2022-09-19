@@ -2,23 +2,25 @@ package com.lakshaykamat.rpsgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Game extends AppCompatActivity {
     private String userChoice;
     private String computerChoice;
-    private TextView computerChoiceEl;
-    private TextView userChoiceEl;
     public TextView yourScoreEl;
     public TextView compScoreEl;
     private TextView gameStatus;
     private TextView versus;
     private TextView roundsEl;
     public MediaPlayer mediaPlayer;
+    private ImageView compChosenImg;
+    private ImageView userChosenImg;
     int userScore = 0;
     int compScore = 0;
     int rounds;
@@ -38,20 +40,20 @@ public class Game extends AppCompatActivity {
 
         //Elements
         roundsEl = findViewById(R.id.roundsEl);
-        computerChoiceEl = findViewById(R.id.computerChoiceEl);
-        userChoiceEl = findViewById(R.id.userChoiceEl);
         versus = findViewById(R.id.versus);
         ImageButton rockButton = findViewById(R.id.rockButton);
         ImageButton paperButton = findViewById(R.id.paperButton);
         ImageButton scissorButton = findViewById(R.id.scissorButton);
+        userChosenImg = findViewById(R.id.userChoiceImg);
+        compChosenImg = findViewById(R.id.compChoiceImg);
         gameStatus = findViewById(R.id.gameStatus);
         yourScoreEl = findViewById(R.id.yourScore);
         compScoreEl = findViewById(R.id.compScore);
 
-        Intent intent = getIntent();
+
         //getting name and rounds
-       usrName = intent.getStringExtra(MainActivity.EXTRA_NAME);
-       String roundString = intent.getStringExtra(MainActivity.EXTRA_ROUNDS_STRING);
+       usrName = getIntent().getStringExtra(MainActivity.EXTRA_NAME);
+       String roundString = getIntent().getStringExtra(MainActivity.EXTRA_ROUNDS_STRING);
        //converting rounds to int and assigning
        rounds = Integer.parseInt(roundString);
        roundsEl.setText(getString(R.string.set_iteration,iteration));
@@ -90,6 +92,29 @@ public class Game extends AppCompatActivity {
          }else if(userChoice.equals(scissor) && computerChoice.equals(paper)){
              userWinMethod(usrWin,userScore,compScore);
          }
+         setButtonImage();
+    }
+    public void setButtonImage(){
+        int rockImg = R.drawable.rock;
+        int paperImg = R.drawable.paper;
+        int scissorImg = R.drawable.scissor;
+        //if user choice is set rock img
+        if(userChoice.equals(rock)){
+            setUsrImage(rockImg);
+        }else if(userChoice.equals(paper)){
+            setUsrImage(paperImg);
+        }else if(userChoice.equals(scissor)){
+            setUsrImage(scissorImg);
+        }
+
+        //if computer choice is set rock
+        if (computerChoice.equals(rock)){
+            setCompImage(rockImg);
+        }else if(computerChoice.equals(paper)){
+            setCompImage(paperImg);
+        }else if(computerChoice.equals(scissor)){
+            setCompImage(scissorImg);
+        }
     }
     //Generates random number from 0 to 3 and assign computer choice
     public String setComputerChoice(){
@@ -116,9 +141,6 @@ public class Game extends AppCompatActivity {
     //When User wins
     public void userWinMethod(String usrWin,int userScore,int compScore){
         this.userScore = userScore+=5; //increment by 5
-        //set choices
-        computerChoiceEl.setText(computerChoice);
-        userChoiceEl.setText(userChoice);
         //set win or lose
         gameStatus.setText(usrWin);
         //set scores
@@ -132,8 +154,6 @@ public class Game extends AppCompatActivity {
     //When Computer wins
     public void compWinMethod(String compWin,int userScore,int compScore){
        this.compScore = compScore+=5;
-        computerChoiceEl.setText(computerChoice);
-        userChoiceEl.setText(userChoice);
         gameStatus.setText(compWin);
         yourScoreEl.setText(getString(R.string.setting_user_score,userScore));
         compScoreEl.setText(getString(R.string.setting_comp_score,compScore));
@@ -145,8 +165,6 @@ public class Game extends AppCompatActivity {
     public void drawMethod(String noWin,int userScore,int compScore){
         this.userScore =  userScore+=3;
         this.compScore = compScore+=3;
-        computerChoiceEl.setText(computerChoice);
-        userChoiceEl.setText(userChoice);
         yourScoreEl.setText(getString(R.string.setting_user_score,userScore));
         compScoreEl.setText(getString(R.string.setting_comp_score,compScore));
         gameStatus.setText(noWin);
@@ -165,5 +183,14 @@ public class Game extends AppCompatActivity {
         computerChoice = setComputerChoice();
         //here all possibilities occurs of game
         playGame(userChoice,computerChoice,userScore,compScore);
+    }
+    @SuppressLint("UseCompatLoadingForDrawables")
+    public void setCompImage(int img){
+        compChosenImg.setImageDrawable(getResources().getDrawable(img));
+    }
+
+    @SuppressLint("UseCompatLoadingForDrawables")
+    public void setUsrImage(int img){
+        userChosenImg.setImageDrawable(getResources().getDrawable(img));
     }
 }

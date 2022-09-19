@@ -14,12 +14,19 @@
         android:theme="@style/Theme.RPSGame"
         tools:targetApi="31">
         <activity
-            android:name=".Game_end"
+            android:name=".game_stats"
+            android:exported="false" />
+        <activity
+            android:name=".about_game"
             android:exported="false"
-            android:label="Rock Paper Scissor Game"/>
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".Game_end"
+            android:exported="true"
+            android:label="Rock Paper Scissor Game" />
         <activity
             android:name=".Game"
-            android:exported="false"
+            android:exported="true"
             android:label="Rock Paper Scissor Game" />
         <activity
             android:name=".MainActivity"

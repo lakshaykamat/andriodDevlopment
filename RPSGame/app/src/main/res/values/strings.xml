@@ -16,11 +16,6 @@
     <string name="set_iteration">Round %1$d</string>
     <string name="setting_comp_score">Comp Score: %1$d</string>
     <string name="setting_user_score">Your Score: %1$d</string>
-    <string-array name="finalWin">
-        <item>Win</item>
-        <item>Lose</item>
-        <item>Draw</item>
-    </string-array>
     <string-array name="button_win_lost">
         <item>PLAY AGAIN</item>
         <item>RETRY</item>

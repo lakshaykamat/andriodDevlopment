@@ -7,9 +7,6 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     private EditText nameInput;
@@ -50,4 +47,13 @@ public class MainActivity extends AppCompatActivity {
         mediaPlayer = MediaPlayer.create(this,R.raw.game_start);
         mediaPlayer.start();
     }
+    public void gameStats(View view){
+       startActivity(new Intent(this,game_stats.class));
+    }
+
+    public void aboutGameIntent(View view){
+        startActivity(new Intent(this,about_game.class));
+    }
+
+
 }
