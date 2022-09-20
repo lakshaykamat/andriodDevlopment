@@ -1,14 +1,10 @@
 package com.lakshaykamat.rpsgame;
 
-import static android.content.ContentValues.TAG;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -16,7 +12,6 @@ import android.widget.TextView;
 
 public class Game_end extends AppCompatActivity {
     private MediaPlayer mediaPlayerGameEnd;
-    int totalPlayedGames;
 
     @SuppressLint({"SetTextI18n", "UseCompatLoadingForDrawables"})
     @Override
@@ -62,11 +57,10 @@ public class Game_end extends AppCompatActivity {
             mediaPlayerGameEnd.start();
         }
 
-        totalPlayedGames+=1;
+
         //setting text
         yourScoreEnd.setText("Your Score: "+yourScore);
-        //compScore.setText("Computer Score: "+computerScore);
-        compScore.setText("Computer Score: "+totalPlayedGames);
+        compScore.setText("Computer Score: "+computerScore);
     }
 
     //when user clicked on PLAY AGAIN OR RETRY button
