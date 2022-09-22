@@ -61,19 +61,23 @@ public class Game_end extends AppCompatActivity {
         //setting text
         yourScoreEnd.setText("Your Score: "+yourScore);
         compScore.setText("Computer Score: "+computerScore);
-    }
-
-    //when user clicked on PLAY AGAIN OR RETRY button
-    public void replay(View view){
-        //play media
-        mediaPlayerGameEnd = MediaPlayer.create(this,R.raw.game_start);
-        mediaPlayerGameEnd.start();
-        //getting back to old intent
-        startActivity(new Intent(this,Game.class));
-    }
-
-    //going to MainActivity.class when user press home button
-    public void goHome(View view){
-        startActivity(new Intent(this,MainActivity.class));
+        //going to MainActivity.class when user press home button
+        findViewById(R.id.homeButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Game_end.this,MainActivity.class));
+            }
+        });
+        //when user clicked on PLAY AGAIN OR RETRY button
+        findViewById(R.id.retryButton).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //play media
+                //mediaPlayerGameEnd = MediaPlayer.create(this,R.raw.game_start);
+                //mediaPlayerGameEnd.start();
+                //getting back to old intent
+                startActivity(new Intent(Game_end.this,Game.class));
+            }
+        });
     }
 }

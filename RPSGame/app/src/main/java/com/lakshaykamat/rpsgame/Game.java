@@ -2,7 +2,6 @@ package com.lakshaykamat.rpsgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
@@ -11,16 +10,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 public class Game extends AppCompatActivity {
-    private String userChoice;
-    private String computerChoice;
-    public TextView yourScoreEl;
-    public TextView compScoreEl;
-    private TextView gameStatus;
-    private TextView versus;
-    private TextView roundsEl;
-    public MediaPlayer mediaPlayer;
-    private ImageView compChosenImg;
-    private ImageView userChosenImg;
+    String userChoice;
+   String computerChoice;
+   TextView yourScoreEl;
+   TextView compScoreEl;
+   TextView gameStatus;
+   TextView versus;
+   TextView roundsEl;
+   MediaPlayer mediaPlayer;
+   ImageView compChosenImg;
+   ImageView userChosenImg;
     int userScore = 0;
     int compScore = 0;
     int rounds;
@@ -174,7 +173,7 @@ public class Game extends AppCompatActivity {
     }
     //When user Clicked any Button
     public void buttonClicked(int userScore,int compScore){
-        iteration++;//increment iteration
+        ++iteration;//increment iteration
         //sets text to VS
         versus.setText(getString(R.string.set_versus));
         //Sets rounds
@@ -184,13 +183,14 @@ public class Game extends AppCompatActivity {
         //here all possibilities occurs of game
         playGame(userChoice,computerChoice,userScore,compScore);
     }
-    @SuppressLint("UseCompatLoadingForDrawables")
     public void setCompImage(int img){
         compChosenImg.setImageDrawable(getResources().getDrawable(img));
     }
 
-    @SuppressLint("UseCompatLoadingForDrawables")
     public void setUsrImage(int img){
         userChosenImg.setImageDrawable(getResources().getDrawable(img));
+    }
+    public static void inc(){
+
     }
 }
